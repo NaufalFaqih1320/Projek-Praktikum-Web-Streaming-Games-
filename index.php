@@ -8,15 +8,17 @@
 <body>
     <!-- Navbar Start -->
     <nav>
-        <div>
+        <div class="navbar-top">
             <div class="logo">
-                
+                <h1>Ini Game</h1>
             </div>
             <div class="search-bar">
-                <input type="text">Search
+                <input type="text" placeholder="Search"> <button type="submit">Search</button>
             </div>
             <div class="start-stream-button">
-
+                <button type="button">
+                    
+                </button>
             </div>
             <div class="settings-notif-button">
 
