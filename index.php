@@ -4,6 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Streaming</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-top {
+            display: flex;
+            justify-content: space-between;
+            border: solid;
+        }
+        .logo {
+            padding: 5px;
+            border: solid;
+        }
+        .search-bar {
+            margin: 20px 5px 5px 5px;
+            border: solid;
+            padding: 5px;
+        }
+        .start-stream-button {
+            margin: 20px 5px 5px 5px;
+            padding: 5px;
+            border: solid;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar Start -->
@@ -18,12 +44,13 @@
                 <div class="search-button"><button type="button">Search</button></div>
             </div>
             <div class="start-stream-button">
-                <button type="button">
+                <div class="logo-stream">
                     
-                </button>
+                </div>
+                <p>Start Stream</p>
             </div>
             <div class="settings-notif-button">
-
+                
             </div>
             <div class="user-profile">
                 
