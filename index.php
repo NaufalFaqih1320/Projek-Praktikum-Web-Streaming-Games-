@@ -6,5 +6,29 @@
     <title>Project Streaming</title>
 </head>
 <body>
-    <h1>Halo</h1>
+    <!-- Navbar Start -->
+    <nav>
+        <div>
+            <div class="logo">
+                
+            </div>
+            <div class="search-bar">
+                <input type="text">Search
+            </div>
+            <div class="start-stream-button">
+
+            </div>
+            <div class="settings-notif-button">
+
+            </div>
+            <div class="user-profile">
+                
+            </div>
+            <div class="profile">
+
+            </div>
+        </div>
+    </nav> 
+    <!-- Navbar End -->
+</body>
 </html>
