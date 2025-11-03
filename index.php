@@ -13,7 +13,9 @@
                 <h1>Ini Game</h1>
             </div>
             <div class="search-bar">
-                <input type="text" placeholder="Search"> <button type="submit">Search</button>
+                <div class="search-toggle"><button type="button"><img src="" alt=""></button></div>
+                <div class="search-placeholder"><input type="text" placeholder="Search"></div>
+                <div class="search-button"><button type="button">Search</button></div>
             </div>
             <div class="start-stream-button">
                 <button type="button">
