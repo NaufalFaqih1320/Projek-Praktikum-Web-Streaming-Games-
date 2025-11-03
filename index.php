@@ -18,16 +18,19 @@
         .logo {
             padding: 5px;
             border: solid;
+            margin: 20px 5px 20px 5px;
         }
         .search-bar {
-            margin: 20px 5px 5px 5px;
+            margin: 20px 5px 20px 5px;
             border: solid;
-            padding: 5px;
+            display: flex;
+            padding: 20px;
+            border-radius: 100px;
         }
         .start-stream-button {
-            margin: 20px 5px 5px 5px;
-            padding: 5px;
+            margin: 20px 5px 20px 5px;
             border: solid;
+            display: flex;
         }
     </style>
 </head>
