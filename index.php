@@ -28,8 +28,8 @@
             justify-content: center;
             align-items: center;
             background-color: #212224;
-            padding: 7px;
-            width: 400px;
+            padding: 4px;
+            width: 420px;
         }
         .search-toogle {
             padding: 0 20px;
@@ -42,16 +42,19 @@
             font-size: 16px;
             color: white;
         }
-        .search-button a{
+        .search-button button {
             color: white;
             text-decoration: none;
             padding: 7px 35px;
             background-color: #2F3032;
             border-radius: 100px;
             margin: 0 0 0 10px;
+            border: none;
         }
         .navbar-stream {
             display: flex;
+            background-color: #251D36;
+            color: white;
         }
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -65,18 +68,18 @@
                 <a href="#"><img src="asset/Group 20.png" alt="" width="100px"></a>
             </div>
             <div class="navbar-search">
-                <div class="search-toggle"><i data-feather="search" style="color: #2F3032; margin: 0 0 0 20px"></i></div>
+                <div class="search-toggle"><i data-feather="search" style="color: #2F3032; margin: 0 0 0 20px;"></i></div>
                 <div class="search-placeholder"><input type="text" placeholder="Search" class="input-search"></div>
-                <div class="search-button"><a href="#">Search</a></div>
+                <div class="search-button"><button type="submit">Search</button></div>
             </div>
             <div class="navbar-stream">
                 <div><i data-feather="video"></i></div>Start Stream
             </div>
             <div class="navbar-setting">
-                <i data-feather="settings"></i>
+                <i data-feather="settings" style="color: white;"></i>
             </div>
             <div class="navbar-notif">
-                <i data-feather="bell"></i>   
+                <i data-feather="bell" style="color: white;"></i>   
             </div>
             <div class="navbar-profile">
                 profil
