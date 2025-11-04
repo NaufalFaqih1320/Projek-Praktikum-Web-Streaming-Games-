@@ -11,6 +11,7 @@
             box-sizing: border-box;
         }
         body {
+            background-color: #121315 !important;
             font-family: 'Poppins';
         }
         .navbar {
@@ -18,10 +19,12 @@
             background-color: #121315;
             justify-content: center;
             align-items: center;
+            position: fixed;
+            box-shadow: 0px 4px 10px black;
         }
         .navbar-logo {
-            margin: 5px 5px 5px 10px;
-        }
+            margin: 5px 5px 5px 30px;
+        } 
         .navbar-search {
             display: flex;
             border-radius: 100px;
@@ -29,32 +32,83 @@
             align-items: center;
             background-color: #212224;
             padding: 4px;
-            width: 420px;
-        }
+            width: 418px;
+        } 
         .search-toogle {
             padding: 0 20px;
         }
         .search-placeholder input {
-            margin: 0 50px 0 10px;
+            margin: 0 80px 0 10px;
             background: transparent;
             border: none;
             outline: none;
-            font-size: 16px;
+            font-size: 14px;
             color: white;
         }
         .search-button button {
             color: white;
             text-decoration: none;
-            padding: 7px 35px;
+            padding: 0 30px 5px 30px;
             background-color: #2F3032;
             border-radius: 100px;
             margin: 0 0 0 10px;
             border: none;
+            transition: 0.3s;
+        }
+        .search-button button:hover {
+            background-color: #FB5877;
+        }
+        .search-button span {
+            font-size: 14px;
         }
         .navbar-stream {
-            display: flex;
-            background-color: #251D36;
+            display: flex;  
             color: white;
+            align-items: center;
+            background-color: #251D36;
+            padding: 5px 5px;
+            border-radius: 100px;
+        }
+        .navbar-stream span {
+            margin: 0 8px 2px 10px;
+            font-size: 14px;
+        }
+        .logo-stream {
+            padding: 0 4px;
+            background-color: #925AFB;
+            width: 30px;
+            height: 30px;
+            border-radius: 100px;
+        }
+        .navbar-profile {
+            display: flex;
+            background-color: #212224;
+            margin: 0 30px;
+            align-items: center;
+            padding: 3px 5px;
+            border-radius: 100px;
+        }
+        .profile-info {
+            display: grid;
+            margin: 0 15px;
+        }
+        .profile-picture img {
+            width:40px;
+            height: 40px;
+        }
+        .profile-name {
+            color: white;
+            font-size: 14px;
+        }
+        .profile-status {
+            color: #7BAF54;
+            font-size: 12px;
+        }
+        .logo-setting:hover {
+            stroke: #FB5877;
+        }
+        .logo-notif:hover {
+            stroke: #FB5877;
         }
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -65,28 +119,34 @@
     <nav>
         <div class="navbar">
             <div class="navbar-logo">
-                <a href="#"><img src="asset/Group 20.png" alt="" width="100px"></a>
+                <a href="#"><img src="asset/Group 20.png" alt="" width="80px"></a>
             </div>
             <div class="navbar-search">
-                <div class="search-toggle"><i data-feather="search" style="color: #2F3032; margin: 0 0 0 20px;"></i></div>
+                <div class="search-toggle"><i data-feather="search" style="color: #2F3032;margin: 0 5px 0 15px"></i></div>
                 <div class="search-placeholder"><input type="text" placeholder="Search" class="input-search"></div>
-                <div class="search-button"><button type="submit">Search</button></div>
+                <div class="search-button"><button type="submit"><span>Search</span></button></div>
             </div>
             <div class="navbar-stream">
-                <div><i data-feather="video"></i></div>Start Stream
+                <div class="stream"><i data-feather="video" class="logo-stream"></i></div><span>Start Stream</span>
             </div>
             <div class="navbar-setting">
-                <i data-feather="settings" style="color: white;"></i>
+                <i data-feather="settings" style="color: #9F9F9F; transition: 0.3s" class="logo-setting"></i>
             </div>
             <div class="navbar-notif">
-                <i data-feather="bell" style="color: white;"></i>   
+                <i data-feather="bell" style="color: #9F9F9F; transition: 0.3s" class="logo-notif"></i>   
             </div>
             <div class="navbar-profile">
-                profil
+                <div class="profile-picture"><img src="asset/Mask group.png" alt=""></div>
+                <div class="profile-info">
+                    <span class="profile-name">Albertus</span>
+                    <span class="profile-status">Online</span>
+                </div>
             </div>
         </div>
     </nav> 
     <!-- Navbar End -->
+
+    <!-- Sidebar Kanan -->
 
     <!-- Feather Icon -->
     <script>
