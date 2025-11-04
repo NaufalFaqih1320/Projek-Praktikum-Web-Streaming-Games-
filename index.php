@@ -8,61 +8,86 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-
-        .navbar-top {
+        body {
+            font-family: 'Poppins';
+        }
+        .navbar {
             display: flex;
-            justify-content: space-between;
-            border: solid;
+            background-color: #121315;
+            justify-content: center;
+            align-items: center;
         }
-        .logo {
-            padding: 5px;
-            border: solid;
-            margin: 20px 5px 20px 5px;
+        .navbar-logo {
+            margin: 5px 5px 5px 10px;
         }
-        .search-bar {
-            margin: 20px 5px 20px 5px;
-            border: solid;
+        .navbar-search {
             display: flex;
-            padding: 20px;
             border-radius: 100px;
+            justify-content: center;
+            align-items: center;
+            background-color: #212224;
+            padding: 7px;
+            width: 400px;
         }
-        .start-stream-button {
-            margin: 20px 5px 20px 5px;
-            border: solid;
+        .search-toogle {
+            padding: 0 20px;
+        }
+        .search-placeholder input {
+            margin: 0 50px 0 10px;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: white;
+        }
+        .search-button a{
+            color: white;
+            text-decoration: none;
+            padding: 7px 35px;
+            background-color: #2F3032;
+            border-radius: 100px;
+            margin: 0 0 0 10px;
+        }
+        .navbar-stream {
             display: flex;
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
     <!-- Navbar Start -->
     <nav>
-        <div class="navbar-top">
-            <div class="logo">
-                <h1>Ini Game</h1>
+        <div class="navbar">
+            <div class="navbar-logo">
+                <a href="#"><img src="asset/Group 20.png" alt="" width="100px"></a>
             </div>
-            <div class="search-bar">
-                <div class="search-toggle"><button type="button"><img src="" alt=""></button></div>
-                <div class="search-placeholder"><input type="text" placeholder="Search"></div>
-                <div class="search-button"><button type="button">Search</button></div>
+            <div class="navbar-search">
+                <div class="search-toggle"><i data-feather="search" style="color: #2F3032; margin: 0 0 0 20px"></i></div>
+                <div class="search-placeholder"><input type="text" placeholder="Search" class="input-search"></div>
+                <div class="search-button"><a href="#">Search</a></div>
             </div>
-            <div class="start-stream-button">
-                <div class="logo-stream">
-                    
-                </div>
-                <p>Start Stream</p>
+            <div class="navbar-stream">
+                <div><i data-feather="video"></i></div>Start Stream
             </div>
-            <div class="settings-notif-button">
-                
+            <div class="navbar-setting">
+                <i data-feather="settings"></i>
             </div>
-            <div class="user-profile">
-                
+            <div class="navbar-notif">
+                <i data-feather="bell"></i>   
             </div>
-            <div class="profile">
-
+            <div class="navbar-profile">
+                profil
             </div>
         </div>
     </nav> 
     <!-- Navbar End -->
+
+    <!-- Feather Icon -->
+    <script>
+        feather.replace();
+    </script>
 </body>
 </html>

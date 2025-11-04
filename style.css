@@ -1,0 +1,13 @@
+.navbar-top {
+    background: black;
+    color: white;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.search-bar {
+    display: flex;
+}
