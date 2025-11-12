@@ -9,12 +9,13 @@
         * {
             margin: 0;
             padding: 0;
+            
         }
 
         body{
             font-family: 'Poppins';
+            font-size: 14px;
         }
-
         .card-container{
             display: flex;
             justify-content: center;
@@ -41,10 +42,10 @@
             padding-left: 20px;
             width: 100%;
             background-color: #2F3032;
-            margin: 3px 0;
+            margin: 5px 0;
         }
         .ingat {
-            margin: 5px 0;
+            margin: 7px 0;
         }
         .button-ingat {
             margin: 0 5px 0 0;
@@ -60,11 +61,14 @@
         .daftar {
             padding: 1px 15px;
             color: #FB5877;
+            text-decoration: none;
         }
         .masuk {
             padding: 1px 15px;
             background-color: #FB5877;
             border-radius: 50px;
+            text-decoration: none;
+            color: white;
         }
         .form {
             padding: 40px 0;
@@ -73,14 +77,15 @@
             color: white;
             background-color: #FB5877;
             width: 100%;
-            padding: 3px 0;
+            padding: 5px 0;
             border-radius: 50px;
             border: none;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
-    <div class="card-container ">
+    <div class="card-container">
         <h1>Halo, Gamers!</h1>
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
@@ -91,8 +96,8 @@
                     <div class="card-body">
                         <div class="header-form">
                             <h5 class="card-img"><a href="#"><img src="asset/Group 20.png" alt="" width="90px"></a></h5>
-                            <span class="masuk">Masuk</span>
-                            <span class="daftar">Daftar</span>
+                            <a href="login.php" class="masuk">Masuk</a>
+                            <a href="register.php" class="daftar">Daftar</a>
                         </div>
                         <form action="index.php" method="POST" class="form">
                             <label for="">Email*</label><br>
