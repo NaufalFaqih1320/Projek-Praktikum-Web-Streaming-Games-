@@ -51,10 +51,23 @@
             border-radius: 50px;
             color: white;
         }
+        .daftar:hover {
+            background-color: #d94765;
+            color: white;
+        }
+        .daftar:active {
+            background-color: #c73d5a;
+        }
         .masuk {
             padding: 1px 15px;
             color: #FB5877;
             text-decoration: none;
+        }
+        .masuk:hover {
+            color: #d94765;
+        }
+        .masuk:active {
+            color: #c73d5a;
         }
         .form { padding: 40px 0; }
         .login-button {
@@ -65,6 +78,7 @@
             border-radius: 50px;
             border: none;
             font-weight: 500;
+            margin: 4px 0 0 0;
         }
     </style>
 </head>
@@ -79,7 +93,7 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <div class="header-form">
-                            <h5><a href="#"><img src="asset/Group 20.png" alt="" width="90px"></a></h5>
+                            <h5 class="card-img"><a href="#"><img src="asset/Group 20.png" alt="" width="90px"></a></h5>
                             <a href="login.php" class="masuk">Masuk</a>
                             <a href="register.php" class="daftar">Daftar</a>
                         </div>
