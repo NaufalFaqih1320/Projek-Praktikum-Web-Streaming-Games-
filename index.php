@@ -156,13 +156,13 @@ if (!isset($_SESSION['login'])) {
     </nav> 
     <!-- Navbar End -->
 
-    <!-- Toast Success Login (Hanya muncul saat ?toast=success di URL) -->
-    <?php if (isset($_GET['toast']) && $_GET['toast'] === 'success'): ?>
+    <!-- Toast Login Berhasil -->
+    <?php if (isset($_GET['toast']) && $_GET['toast'] === 'login_success'): ?>
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
-        <div class="toast align-items-center text-bg-success border-0" role="alert" id="welcomeToast">
+        <div class="toast align-items-center text-bg-success border-0 shadow-lg" role="alert" id="welcomeToast">
             <div class="d-flex">
                 <div class="toast-body text-white">
-                    <strong>Selamat datang kembali, <?php echo htmlspecialchars($_SESSION['username'] ?? 'Gamers'); ?>!</strong>
+                    <strong>Selamat datang kembali, <?php echo htmlspecialchars($_SESSION['username'] ?? 'Gamer'); ?>!</strong>
                 </div>
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
@@ -170,20 +170,20 @@ if (!isset($_SESSION['login'])) {
     </div>
     <?php endif; ?>
 
-    <!-- Feather Icon -->
+    <!-- Feather Icons -->
     <script>
         feather.replace();
     </script>
 
-    <!-- Bootstrap JS (wajib untuk toast) -->
+    <!-- Bootstrap JS (untuk toast) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Auto show toast kalau ada -->
+    <!-- Auto-show toast kalau ada -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const toastEl = document.getElementById('welcomeToast');
             if (toastEl) {
-                const toast = new bootstrap.Toast(toastEl, { delay: 4000 });
+                const toast = new bootstrap.Toast(toastEl, { delay: 5000 });
                 toast.show();
             }
         });
