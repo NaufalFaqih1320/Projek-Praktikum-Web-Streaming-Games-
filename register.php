@@ -44,20 +44,22 @@
             align-items: center;
             gap: 4px;
         }
+        .masuk, .daftar {
+            padding: 6px 15px;   
+            border-radius: 50px;
+        }
         .daftar {
-            padding: 1px 15px;
             background-color: #FB5877;
             text-decoration: none;
-            border-radius: 50px;
             color: white;
         }
         .masuk {
-            padding: 1px 15px;
             color: #FB5877;
             text-decoration: none;
         }
         .form { padding: 40px 0; }
         .login-button {
+            margin: 4px 0px 0px 0px;
             color: white;
             background-color: #FB5877;
             width: 100%;
@@ -79,7 +81,7 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <div class="header-form">
-                            <h5><a href="#"><img src="asset/Group 20.png" alt="" width="90px"></a></h5>
+                            <h5 class="card-img"><a href="#"><img src="asset/Group 20.png" alt="" width="90px"></a></h5>
                             <a href="login.php" class="masuk">Masuk</a>
                             <a href="register.php" class="daftar">Daftar</a>
                         </div>

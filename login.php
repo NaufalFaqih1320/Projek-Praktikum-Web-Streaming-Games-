@@ -45,17 +45,18 @@
             align-items: center;
             gap: 4px;
         }
-        .daftar {
-            padding: 1px 15px;
-            color: #FB5877;
-            text-decoration: none;
+        .masuk, .daftar {
+            padding: 6px 15px;   /* tambahkan tinggi agar sama */
+            border-radius: 50px;
         }
         .masuk {
-            padding: 1px 15px;
             background-color: #FB5877;
-            border-radius: 50px;
-            text-decoration: none;
             color: white;
+            text-decoration: none;
+        }
+        .daftar {
+            color: #FB5877;
+            text-decoration: none;
         }
         .form { padding: 40px 0; }
         .login-button {
