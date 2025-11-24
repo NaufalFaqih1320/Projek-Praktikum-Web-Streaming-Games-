@@ -18,12 +18,17 @@ if ($result->num_rows === 1) {
         $_SESSION['email'] = $user['email'];
         if (isset($_POST['ingat'])) {
             setcookie('remember_email', $_POST['email'], time() + (86400 * 30), "/");
+            setcookie('remember_password', $_POST['password'], time() + (86400 * 30), "/");
         } else {
+            // Hapus cookie jika tidak dicentang
             if (isset($_COOKIE['remember_email'])) {
                 setcookie('remember_email', '', time() - 3600, "/");
             }
+            if (isset($_COOKIE['remember_password'])) {
+                setcookie('remember_password', '', time() - 3600, "/");
+            }
         }
-        
+
         header("Location: index.php");
         exit;
     } else {
