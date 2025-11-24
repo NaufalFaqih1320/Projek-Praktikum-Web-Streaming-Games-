@@ -101,13 +101,13 @@
                         </div>
 
                         <form action="proses_register.php" method="post" class="form">
-                            <label>Username*</label>
+                            <label>Username</label>
                             <input class="login-input" type="text" name="username" placeholder="Masukkan username Anda" required>
 
-                            <label>Email*</label>
+                            <label>Email</label>
                             <input class="login-input" type="email" name="email" placeholder="Masukkan email Anda" required>
 
-                            <label>Password*</label>
+                            <label>Password</label>
                             <input class="login-input" type="password" name="password" placeholder="Masukkan password Anda" required>
 
                             <button class="login-button" type="submit">Daftar</button>
