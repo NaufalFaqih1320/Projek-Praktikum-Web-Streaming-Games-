@@ -88,13 +88,15 @@
 
                         <form action="proses_login.php" method="post" class="form">
                             <label>Email*</label><br>
-                            <input class="login-input" type="email" name="email" placeholder="Masukkan email Anda" required><br>
+                            <input class="login-input" type="email" name="email" placeholder="Masukkan email Anda" 
+                                   value="<?php echo isset($_COOKIE['remember_email']) ? htmlspecialchars($_COOKIE['remember_email']) : ''; ?>" required><br>
 
                             <label>Password*</label><br>
                             <input class="login-input" type="password" name="password" placeholder="Masukkan password Anda" required><br>
 
                             <label class="ingat">
-                                <input class="button-ingat" type="checkbox" name="ingat"> Ingat Saya
+                                <input class="button-ingat" type="checkbox" name="ingat" 
+                                       <?php echo isset($_COOKIE['remember_email']) ? 'checked' : ''; ?>> Ingat Saya
                             </label><br>
                             <button class="login-button" type="submit">Masuk</button>
                         </form>
@@ -104,5 +106,16 @@
             </div>
         </div>
     </div>
+
+    <?php
+    if (isset($_POST['ingat']) && $_POST['ingat'] == 'on') {
+        $email = $_POST['email'];
+        setcookie('remember_email', $email, time() + (86400 * 30), "/"); // 30 hari
+    } else {
+        if (isset($_COOKIE['remember_email'])) {
+            setcookie('remember_email', '', time() - 3600, "/");
+        }
+    }
+    ?>
 </body>
 </html>

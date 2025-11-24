@@ -13,10 +13,17 @@ $result = $stmt->get_result();
 if ($result->num_rows === 1) {
     $user = $result->fetch_assoc();
     if (password_verify($password, $user['password'])) {
-        // login sukses
         $_SESSION['login'] = true;
         $_SESSION['username'] = $user['username'];
         $_SESSION['email'] = $user['email'];
+        if (isset($_POST['ingat'])) {
+            setcookie('remember_email', $_POST['email'], time() + (86400 * 30), "/");
+        } else {
+            if (isset($_COOKIE['remember_email'])) {
+                setcookie('remember_email', '', time() - 3600, "/");
+            }
+        }
+        
         header("Location: index.php");
         exit;
     } else {
