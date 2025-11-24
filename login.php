@@ -4,13 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            
-        }
+        * { margin: 0; padding: 0; }
 
         body{
             font-family: 'Poppins';
@@ -25,15 +21,12 @@
             flex-direction: column;
             color: #FFFFFF;
         }
-        .card-body {
-            margin: 0 5px;
-        }
+        .card-body { margin: 0 5px; }
         .card{
             border-radius: 20px;
             background-color: #1E1E1E;
             color: #FFFFFF;
         }
-
         .login-input{
             padding: 5px;
             color: white;
@@ -44,15 +37,9 @@
             background-color: #2F3032;
             margin: 5px 0;
         }
-        .ingat {
-            margin: 7px 0;
-        }
-        .button-ingat {
-            margin: 0 5px 0 0;
-        }
-        .img-card{
-            border-radius: 20px;
-        }
+        .ingat { margin: 7px 0; }
+        .button-ingat { margin-right: 5px; }
+        .img-card{ border-radius: 20px; }
         .header-form {
             display: flex;
             align-items: center;
@@ -70,14 +57,12 @@
             text-decoration: none;
             color: white;
         }
-        .form {
-            padding: 40px 0;
-        }
+        .form { padding: 40px 0; }
         .login-button {
             color: white;
             background-color: #FB5877;
             width: 100%;
-            padding: 5px 0;
+            padding: 7px 0;
             border-radius: 50px;
             border: none;
             font-weight: 500;
@@ -99,16 +84,20 @@
                             <a href="login.php" class="masuk">Masuk</a>
                             <a href="register.php" class="daftar">Daftar</a>
                         </div>
-                        <form action="index.php" method="POST" class="form">
-                            <label for="">Email*</label><br>
-                            <input class="login-input" type="text" name="nama" placeholder="Masukkan email Anda" required><br>
-                            <label for="">Password*</label><br>
-                            <input class="login-input" type="text" name="email" placeholder="Masukkan password Anda" required><br>
-                            <label for="" class="ingat">
-                                <input class="button-ingat" type="checkbox" name="ingat" >Ingat Saya
+
+                        <form action="proses_login.php" method="post" class="form">
+                            <label>Email*</label><br>
+                            <input class="login-input" type="email" name="email" placeholder="Masukkan email Anda" required><br>
+
+                            <label>Password*</label><br>
+                            <input class="login-input" type="password" name="password" placeholder="Masukkan password Anda" required><br>
+
+                            <label class="ingat">
+                                <input class="button-ingat" type="checkbox" name="ingat"> Ingat Saya
                             </label><br>
                             <button class="login-button" type="submit">Masuk</button>
                         </form>
+
                     </div>
                 </div>
             </div>

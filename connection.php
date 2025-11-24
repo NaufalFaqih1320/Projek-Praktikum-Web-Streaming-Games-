@@ -1,10 +1,9 @@
 <?php
-
 $hostname = "localhost";
 $port = 3306;
-$username = "";
+$username = "root";
 $password = "";
-$database = "stream_game";
+$database = "db_streaming";
 
 try {
     $connection =new mysqli($hostname, $username, $password, $database);
