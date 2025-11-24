@@ -1,35 +1,34 @@
 <?php
+// === BAGIAN PHP PALING ATAS (sebelum HTML apa pun) ===
+$saved_email = '';
+$saved_pass  = '';
+$checked     = '';
 
-if (isset($_COOKIE['remember_email']) && isset($_COOKIE['remember_password'])) {
-    $saved_email = htmlspecialchars($_COOKIE['remember_email']);
-    $saved_password = htmlspecialchars($_COOKIE['remember_password']);
+if (isset($_COOKIE['saved_email'])) {
+    $saved_email = htmlspecialchars($_COOKIE['saved_email']);
+}
+if (isset($_COOKIE['saved_password'])) {
+    $saved_pass = htmlspecialchars($_COOKIE['saved_password']);
+}
+if ($saved_email !== '' || $saved_pass !== '') {
     $checked = 'checked';
-} else {
-    $saved_email = '';
-    $saved_password = '';
-    $checked = '';
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+        * { margin: 0; padding: 0; }
 
-        body {
+        body{
             font-family: 'Poppins';
             font-size: 14px;
         }
-
-        .card-container {
+        .card-container{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -38,18 +37,13 @@ if (isset($_COOKIE['remember_email']) && isset($_COOKIE['remember_password'])) {
             flex-direction: column;
             color: #FFFFFF;
         }
-
-        .card-body {
-            margin: 0 5px;
-        }
-
-        .card {
+        .card-body { margin: 0 5px; }
+        .card{
             border-radius: 20px;
             background-color: #1E1E1E;
             color: #FFFFFF;
         }
-
-        .login-input {
+        .login-input{
             padding: 5px;
             color: white;
             border: 1px solid #2F3032;
@@ -59,46 +53,28 @@ if (isset($_COOKIE['remember_email']) && isset($_COOKIE['remember_password'])) {
             background-color: #2F3032;
             margin: 5px 0;
         }
-
-        .ingat {
-            margin: 7px 0;
-        }
-
-        .button-ingat {
-            margin-right: 5px;
-        }
-
-        .img-card {
-            border-radius: 20px;
-        }
-
+        .ingat { margin: 7px 0; }
+        .button-ingat { margin-right: 5px; }
+        .img-card{ border-radius: 20px; }
         .header-form {
             display: flex;
             align-items: center;
             gap: 4px;
         }
-
-        .masuk,
-        .daftar {
+        .masuk, .daftar {
             padding: 6px 15px;
             border-radius: 50px;
         }
-
         .masuk {
             background-color: #FB5877;
             color: white;
             text-decoration: none;
         }
-
         .daftar {
             color: #FB5877;
             text-decoration: none;
         }
-
-        .form {
-            padding: 40px 0;
-        }
-
+        .form { padding: 40px 0; }
         .login-button {
             color: white;
             background-color: #FB5877;
@@ -110,7 +86,6 @@ if (isset($_COOKIE['remember_email']) && isset($_COOKIE['remember_password'])) {
         }
     </style>
 </head>
-
 <body>
     <div class="card-container">
         <h1>Halo, Gamers!</h1>
@@ -129,18 +104,15 @@ if (isset($_COOKIE['remember_email']) && isset($_COOKIE['remember_password'])) {
 
                         <form action="proses_login.php" method="post" class="form">
                             <label>Email*</label><br>
-                            <input class="login-input" type="email" name="email" placeholder="Masukkan email Anda"
-                                value="<?php echo $saved_email; ?>" required><br>
+                            <input class="login-input" type="email" name="email" placeholder="Masukkan email Anda" 
+                                   value="<?php echo $saved_email; ?>" required><br>
 
                             <label>Password*</label><br>
-                            <input class="login-input" type="text" name="password" placeholder="Masukkan password Anda"
-                                value="<?php echo $saved_password; ?>" required><br>
-                            <!-- Catatan: type="text" supaya password langsung terlihat jika di-remember.
-                                 Jika tetap ingin type="password", ganti saja kembali ke type="password" -->
+                            <input class="login-input" type="password" name="password" placeholder="Masukkan password Anda" 
+                                   value="<?php echo $saved_pass; ?>" required><br>
 
                             <label class="ingat">
-                                <input class="button-ingat" type="checkbox" name="ingat" <?php echo $checked; ?>> Ingat
-                                Saya
+                                <input class="button-ingat" type="checkbox" name="ingat" <?php echo $checked; ?>> Ingat Saya
                             </label><br>
                             <button class="login-button" type="submit">Masuk</button>
                         </form>
@@ -151,5 +123,4 @@ if (isset($_COOKIE['remember_email']) && isset($_COOKIE['remember_password'])) {
         </div>
     </div>
 </body>
-
 </html>

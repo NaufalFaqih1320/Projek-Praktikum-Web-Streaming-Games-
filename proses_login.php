@@ -17,16 +17,12 @@ if ($result->num_rows === 1) {
         $_SESSION['username'] = $user['username'];
         $_SESSION['email'] = $user['email'];
         if (isset($_POST['ingat'])) {
-            setcookie('remember_email', $_POST['email'], time() + (86400 * 30), "/");
-            setcookie('remember_password', $_POST['password'], time() + (86400 * 30), "/");
+            setcookie('saved_email', $_POST['email'], time() + (86400 * 30), "/");        // 30 hari
+            setcookie('saved_password', $_POST['password'], time() + (86400 * 30), "/");  // password asli
         } else {
-            // Hapus cookie jika tidak dicentang
-            if (isset($_COOKIE['remember_email'])) {
-                setcookie('remember_email', '', time() - 3600, "/");
-            }
-            if (isset($_COOKIE['remember_password'])) {
-                setcookie('remember_password', '', time() - 3600, "/");
-            }
+            // Hapus cookie kalau tidak dicentang
+            setcookie('saved_email', '', time() - 3600, "/");
+            setcookie('saved_password', '', time() - 3600, "/");
         }
 
         header("Location: index.php");
