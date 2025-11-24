@@ -53,9 +53,22 @@
             text-decoration: none;
             color: white;
         }
+        .daftar:hover {
+            background-color: #d94765;
+            color: white;
+        }
+        .daftar:active {
+            background-color: #c73d5a;
+        }
         .masuk {
             color: #FB5877;
             text-decoration: none;
+        }
+        .masuk:hover {
+            color: #d94765;
+        }
+        .masuk:active {
+            color: #c73d5a;
         }
         .form { padding: 40px 0; }
         .login-button {
@@ -67,6 +80,7 @@
             border-radius: 50px;
             border: none;
             font-weight: 500;
+            margin: 4px 0 0 0;
         }
     </style>
 </head>
