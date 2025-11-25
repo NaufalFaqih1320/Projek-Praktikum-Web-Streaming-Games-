@@ -21,7 +21,7 @@ if (!isset($_SESSION['login'])) {
      <?php include "navbar.php" ?>
 
     <!-- Toast Login -->
-    <?php if (isset($_GET['toast']) && $_GET['toast'] === 'success'): ?>
+    <?php if (isset($_GET['toast']) && $_GET['toast'] === 'login_success'): ?>
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
         <div class="toast align-items-center text-bg-success border-0" role="alert" id="welcomeToast">
             <div class="d-flex">
