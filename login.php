@@ -156,11 +156,11 @@ if (isset($_GET['toast'])) {
                         </div>
 
                         <form action="proses_login.php" method="post" class="form">
-                            <label>Email*</label><br>
+                            <label>Email</label><br>
                             <input class="login-input" type="email" name="email" placeholder="Masukkan email Anda"
                                 value="<?php echo $saved_email; ?>" required><br>
 
-                            <label>Password*</label><br>
+                            <label>Password</label><br>
                             <input class="login-input" type="password" name="password"
                                 placeholder="Masukkan password Anda" value="<?php echo $saved_pass; ?>" required><br>
 
