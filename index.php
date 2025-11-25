@@ -37,7 +37,6 @@ if (!isset($_SESSION['login'])) {
     <script>
         feather.replace();
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const toastEl = document.getElementById('welcomeToast');
