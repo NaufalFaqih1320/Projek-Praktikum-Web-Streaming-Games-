@@ -26,7 +26,7 @@ if (!isset($_SESSION['login'])) {
         <div class="toast align-items-center text-bg-success border-0" role="alert" id="welcomeToast">
             <div class="d-flex">
                 <div class="toast-body text-white">
-                    <strong>Selamat datang kembali, <?= htmlspecialchars($_SESSION['username'] ?? 'Gamers') ?>!</strong>
+                    <strong>Selamat datang, <?= htmlspecialchars($_SESSION['username'] ?? 'Gamers') ?>!</strong>
                 </div>
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
             </div>
