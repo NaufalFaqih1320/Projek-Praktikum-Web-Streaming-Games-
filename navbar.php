@@ -1,28 +1,45 @@
-<nav>
-        <div class="navbar">
+<nav class="navbar">
+
+        <!-- Kiri -->
+        <div class="navbar-left">
             <div class="navbar-logo">
-                <a href="#"><img src="asset/Group 20.png" alt="" width="80px"></a>
+                <a href="#"><img src="asset/Group 20.png" alt="Logo"></a>
             </div>
             <div class="navbar-search">
-                <div class="search-toggle"><i data-feather="search" style="color: #2F3032;margin: 0 5px 0 15px"></i></div>
-                <div class="search-placeholder"><input type="text" placeholder="Search" class="input-search"></div>
-                <div class="search-button"><button type="submit"><span>Search</span></button></div>
-            </div>
-            <div class="navbar-stream">
-                <div class="stream"><i data-feather="video" class="logo-stream"></i></div><span>Start Stream</span>
-            </div>
-            <div class="navbar-setting">
-                <i data-feather="settings" style="color: #9F9F9F; transition: 0.3s" class="logo-setting"></i>
-            </div>
-            <div class="navbar-notif">
-                <i data-feather="bell" style="color: #9F9F9F; transition: 0.3s" class="logo-notif"></i>   
-            </div>
-            <div class="navbar-profile">
-                <div class="profile-picture"><img src="asset/Mask group.png" alt=""></div>
-                <div class="profile-info">
-                    <span class="profile-name">Albertus</span>
-                    <span class="profile-status">Online</span>
+                <i data-feather="search"></i>
+                <div class="search-placeholder">
+                    <input type="text" placeholder="Search">
+                </div>
+                <div class="search-button">
+                    <button type="submit">Search</button>
                 </div>
             </div>
         </div>
-    </nav> 
+
+        <!-- Tengah: Start Stream, Notification, Settings (dengan gap besar) -->
+        <div class="navbar-center">
+            <div class="nav-action">
+                <i data-feather="video"></i>
+                <span>Start Stream</span>
+            </div>
+            <div class="nav-action">
+                <i data-feather="bell"></i>
+                <span>Notification</span>
+            </div>
+            <div class="nav-action">
+                <i data-feather="settings"></i>
+                <span>Settings</span>
+            </div>
+        </div>
+
+        <!-- Kanan -->
+        <div class="navbar-profile">
+            <div class="profile-picture">
+                <img src="asset/Mask group.png" alt="Profile">
+            </div>
+            <div class="profile-info">
+                <span class="profile-name">Albertus</span>
+                <span class="profile-status">Online</span>
+            </div>
+        </div>
+    </nav>

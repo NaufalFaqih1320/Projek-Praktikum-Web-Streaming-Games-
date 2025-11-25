@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-// Cek login
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
     exit;
@@ -14,149 +12,174 @@ if (!isset($_SESSION['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Streaming</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background-color: #121315 !important;
-            font-family: 'Poppins';
+            font-family: 'Poppins', sans-serif;
+            padding-top: 80px;
         }
+
+        /* ==================== NAVBAR ==================== */
         .navbar {
-            display: flex;
-            background-color: #121315;
-            justify-content: center;
-            align-items: center;
             position: fixed;
-            box-shadow: 0px 4px 10px black;
+            top: 0; left: 0; right: 0;
+            height: 70px;
+            background-color: #121315;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+            z-index: 1000;
         }
-        .navbar-logo {
-            margin: 5px 5px 5px 30px;
-        } 
+
+        /* Kiri: Logo + Search */
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .navbar-logo img { width: 80px; }
+
+        /* Search */
         .navbar-search {
             display: flex;
-            border-radius: 100px;
-            justify-content: center;
             align-items: center;
             background-color: #212224;
-            padding: 4px;
-            width: 418px;
-        } 
-        .search-toogle {
-            padding: 0 20px;
+            border-radius: 100px;
+            padding: 4px 8px;
+            margin: 0 24px;
+            width: 420px;
+            height: 44px;
         }
+        .navbar-search i { color: #777; margin-left: 12px; }
         .search-placeholder input {
-            margin: 0 80px 0 10px;
             background: transparent;
             border: none;
             outline: none;
-            font-size: 14px;
             color: white;
+            font-size: 14px;
+            flex: 1;
+            margin: 0 12px;
         }
         .search-button button {
-            color: white;
-            text-decoration: none;
-            padding: 0 30px 5px 30px;
             background-color: #2F3032;
-            border-radius: 100px;
-            margin: 0 0 0 10px;
+            color: white;
             border: none;
-            transition: 0.3s;
+            border-radius: 100px;
+            height: 36px;
+            padding: 0 32px;
+            margin: 0 0 0 76px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
         }
         .search-button button:hover {
             background-color: #FB5877;
+            box-shadow: 0 5px 18px rgba(251, 88, 119, 0.45);
         }
-        .search-button span {
-            font-size: 14px;
-        }
-        .navbar-stream {
-            display: flex;  
-            color: white;
+
+        /* ==================== TENGAH: ACTION BUTTONS (DENGAN GAP BESAR & ANTI-GESER) ==================== */
+        .navbar-center {
+            display: flex;
             align-items: center;
-            background-color: #251D36;
-            padding: 5px 5px;
-            border-radius: 100px;
+            gap: 28px; /* ← INI YANG KAMU MAU: JARAK LEBIH LEGA & ENAK DILIHAT */
         }
-        .navbar-stream span {
-            margin: 0 8px 2px 10px;
+
+        .nav-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 48px;
+            height: 48px;
+            padding: 0 14px;
+            border-radius: 50px;
+            background: transparent;
+            color: white;
             font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            gap: 10px;
         }
-        .logo-stream {
-            padding: 0 4px;
-            background-color: #925AFB;
-            width: 30px;
-            height: 30px;
-            border-radius: 100px;
+        .nav-action i {
+            color: #925AFB;
+            transition: color 0.35s ease;
+            flex-shrink: 0;
         }
+        .nav-action span {
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.35s ease;
+            max-width: 0;
+            overflow: hidden;
+        }
+
+        .nav-action:hover {
+            background: #FB5877;
+            padding: 0 22px;
+            box-shadow: 0 5px 18px rgba(251, 88, 119, 0.45);
+        }
+        .nav-action:hover i { color: white; }
+        .nav-action:hover span {
+            opacity: 1;
+            transform: translateX(0);
+            max-width: 140px;
+        }
+
+        /* Kanan: Profile */
         .navbar-profile {
             display: flex;
-            background-color: #212224;
-            margin: 0 30px;
             align-items: center;
-            padding: 3px 5px;
+            background-color: #212224;
+            padding: 6px 14px;
             border-radius: 100px;
-        }
-        .profile-info {
-            display: grid;
-            margin: 0 15px;
+            gap: 12px;
         }
         .profile-picture img {
-            width:40px;
+            width: 40px;
             height: 40px;
+            border-radius: 50%;
         }
-        .profile-name {
-            color: white;
-            font-size: 14px;
-        }
-        .profile-status {
-            color: #7BAF54;
-            font-size: 12px;
-        }
-        .logo-setting:hover {
-            stroke: #FB5877;
-        }
-        .logo-notif:hover {
-            stroke: #FB5877;
-        }
+        .profile-name { color: white; font-size: 14px; font-weight: 500; }
+        .profile-status { color: #7BAF54; font-size: 12px; }
+        .profile-info { display: grid; }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
-    <!-- Navbar Start -->
-    <?php include "navbar.php"; ?>
-    <!-- Navbar End -->
 
-    <!-- Toast Login Berhasil -->
-    <?php if (isset($_GET['toast']) && $_GET['toast'] === 'login_success'): ?>
+    <!-- NAVBAR -->
+     <?php include "navbar.php" ?>
+
+    <!-- Toast Login -->
+    <?php if (isset($_GET['toast']) && $_GET['toast'] === 'success'): ?>
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
-        <div class="toast align-items-center text-bg-success border-0 shadow-lg" role="alert" id="welcomeToast">
+        <div class="toast align-items-center text-bg-success border-0" role="alert" id="welcomeToast">
             <div class="d-flex">
                 <div class="toast-body text-white">
-                    <strong>Selamat datang kembali, <?php echo htmlspecialchars($_SESSION['username'] ?? 'Gamer'); ?>!</strong>
+                    <strong>Selamat datang kembali, <?= htmlspecialchars($_SESSION['username'] ?? 'Gamers') ?>!</strong>
                 </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
             </div>
         </div>
     </div>
     <?php endif; ?>
 
-    <!-- Feather Icons -->
     <script>
         feather.replace();
     </script>
-
-    <!-- Bootstrap JS (untuk toast) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Auto-show toast kalau ada -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const toastEl = document.getElementById('welcomeToast');
             if (toastEl) {
-                const toast = new bootstrap.Toast(toastEl, { delay: 5000 });
+                const toast = new bootstrap.Toast(toastEl, { delay: 4000 });
                 toast.show();
             }
         });
