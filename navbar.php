@@ -1,192 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Twitch Navbar Clone</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/feather-icons"></script>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: #121315 !important;
-            font-family: 'Poppins', sans-serif;
-            padding-top: 80px;
-        }
-
-        /* ==================== NAVBAR ==================== */
-        .navbar {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 70px;
-            background-color: #121315;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 24px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-            z-index: 1000;
-        }
-
-        /* Kiri: Logo + Search */
-        .navbar-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .navbar-logo img { width: 80px; }
-
-        /* Search */
-        .navbar-search {
-            display: flex;
-            align-items: center;
-            background-color: #212224;
-            border-radius: 100px;
-            padding: 4px 8px;
-            margin: 0 24px;
-            width: 420px;
-            height: 44px;
-        }
-        .navbar-search i { color: #777; margin-left: 12px; }
-        .search-placeholder input {
-            background: transparent;
-            border: none;
-            outline: none;
-            color: white;
-            font-size: 14px;
-            flex: 1;
-            margin: 0 12px;
-        }
-        .search-button button {
-            background-color: #2F3032;
-            color: white;
-            border: none;
-            border-radius: 100px;
-            height: 36px;
-            padding: 0 32px;
-            margin: 0 0 0 76px;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-        }
-        .search-button button:hover {
-            background-color: #FB5877;
-            box-shadow: 0 5px 18px rgba(251, 88, 119, 0.45);
-        }
-
-        /* ==================== TENGAH: ACTION BUTTONS (DENGAN GAP BESAR & ANTI-GESER) ==================== */
-        .navbar-center {
-            display: flex;
-            align-items: center;
-            gap: 28px; /* ← INI YANG KAMU MAU: JARAK LEBIH LEGA & ENAK DILIHAT */
-        }
-
-        .nav-action {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 48px;
-            height: 48px;
-            padding: 0 14px;
-            border-radius: 50px;
-            background: transparent;
-            color: white;
-            font-size: 14px;
-            font-weight: 500;
-            white-space: nowrap;
-            overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            gap: 10px;
-        }
-        .nav-action i {
-            color: #925AFB;
-            transition: color 0.35s ease;
-            flex-shrink: 0;
-        }
-        .nav-action span {
-            opacity: 0;
-            transform: translateX(-8px);
-            transition: all 0.35s ease;
-            max-width: 0;
-            overflow: hidden;
-        }
-
-        .nav-action:hover {
-            background: #FB5877;
-            padding: 0 22px;
-            box-shadow: 0 5px 18px rgba(251, 88, 119, 0.45);
-        }
-        .nav-action:hover i { color: white; }
-        .nav-action:hover span {
-            opacity: 1;
-            transform: translateX(0);
-            max-width: 140px;
-        }
-
-        /* Kanan: Profile */
-        .navbar-profile {
-            display: flex;
-            align-items: center;
-            background-color: #212224;
-            padding: 6px 14px;
-            border-radius: 100px;
-            gap: 12px;
-        }
-        .profile-picture img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-        .profile-name { color: white; font-size: 14px; font-weight: 500; }
-        .profile-status { color: #7BAF54; font-size: 12px; }
-        .profile-info { display: grid; }
-    </style>
+  <style>
+    .navbar-custom {
+      background-color: #0e0e10;
+      padding: 0.5rem 1rem;
+      height: 60px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+    .nav-link {
+      color: #efeff1;
+      font-weight: 600;
+      padding: 0.5rem 1rem !important;
+      border-radius: 6px;
+      transition: background-color 0.2s;
+    }
+    .nav-link:hover{
+      background-color: #FB5877;
+      color: white;
+    }
+    .search-input {
+      background-color: #2d2d30;
+      border: none;
+      border-radius: 8px;
+      color: #efeff1;
+      padding-left: 2.5rem;
+      height: 40px;
+    }
+    .search-input:focus {
+      background-color: #3a3a3f;
+      box-shadow: none;
+      color: #efeff1;
+    }
+    .search-container {
+      position: relative;
+      max-width: 400px;
+      width: 100%;
+    }
+    .search-container i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #8e8e93;
+      z-index: 10;
+    }
+    .btn-prime {
+      background: linear-gradient(90deg, #772ce8 0%, #a970ff 100%);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+    .badge-notif {
+      background-color: #f33;
+      font-size: 0.65rem;
+      padding: 0.2em 0.45em;
+    }
+    .icon-btn {
+      color: #efeff1;
+      font-size: 1.4rem;
+      padding: 0.5rem;
+      border-radius: 6px;
+      transition: background-color 0.2s;
+    }
+    .icon-btn:hover {
+      background-color: #FB5877;
+      color: white;
+    }
+    .profile-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .dropdown-item:hover {
+      color: #0e0e10;
+    }
+  </style>
 </head>
-<body>
-    <nav class="navbar">
-    
-            <!-- Kiri -->
-            <div class="navbar-left">
-                <div class="navbar-logo">
-                    <a href="#"><img src="asset/Group 20.png" alt="Logo"></a>
-                </div>
-                <div class="navbar-search">
-                    <i data-feather="search"></i>
-                    <div class="search-placeholder">
-                        <input type="text" placeholder="Search">
-                    </div>
-                    <div class="search-button">
-                        <button type="submit">Search</button>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Tengah: Start Stream, Notification, Settings (dengan gap besar) -->
-            <div class="navbar-center">
-                <div class="nav-action">
-                    <i data-feather="video"></i>
-                    <span>Start Stream</span>
-                </div>
-                <div class="nav-action">
-                    <i data-feather="bell"></i>
-                    <span>Notification</span>
-                </div>
-                <div class="nav-action">
-                    <i data-feather="settings"></i>
-                    <span>Settings</span>
-                </div>
-            </div>
-    
-            <!-- Kanan -->
-            <div class="navbar-profile">
-                <div class="profile-picture">
-                    <img src="asset/Mask group.png" alt="Profile">
-                </div>
-                <div class="profile-info">
-                    <span class="profile-name">Albertus</span>
-                    <span class="profile-status">Online</span>
-                </div>
-            </div>
-        </nav>
+<body class="bg-dark">
+
+<nav class="navbar navbar-expand navbar-dark navbar-custom">
+  <div class="container-fluid">
+
+    <!-- Logo + Following + Browse -->
+    <div class="d-flex align-items-center">
+      <a class="navbar-brand me-4" href="#">
+        <img src="asset/Group 20.png" alt="Twitch" width="80">
+      </a>
+
+      <ul class="navbar-nav me-auto d-flex flex-row">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Following</a>
+        </li>
+        <li class="nav-item ms-3">
+          <a class="nav-link" href="#">Browse</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Search -->
+    <div class="search-container mx-4 flex-grow-1">
+      <i class="bi bi-search"></i>
+      <input type="text" class="form-control search-input ps-5" placeholder="Search">
+    </div>
+
+    <!-- Right icons + Prime button + Profile -->
+    <div class="d-flex align-items-center">
+
+      <!-- Notification -->
+      <button class="btn icon-btn position-relative me-2">
+        <i class="bi bi-bell"></i>
+      </button>
+
+      <!-- Profile -->
+      <div class="dropdown">
+        <a class="dropdown-toggle d-flex align-items-center text-decoration-none" href="#" role="button" data-bs-toggle="dropdown">
+          <img src="asset/Mask group.png" 
+               alt="Profile" class="profile-img">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end bg-dark border-primary">
+          <li><a class="dropdown-item text-white" href="#">Profile</a></li>
+          <li><a class="dropdown-item text-white" href="#">Settings</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item text-white" href="#">Log Out</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Bootstrap 5 JS (untuk dropdown) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+</html>
